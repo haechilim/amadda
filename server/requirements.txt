@@ -1,0 +1,43 @@
+asgiref==3.5.2
+bitarray==2.5.1
+Django==3.2.13
+djangorestframework==3.13.1
+psycopg2==2.9.3
+psycopg2-binary==2.9.3
+Pygments==2.12.0
+pytz==2022.1
+sqlparse==0.4.2
+typing_extensions==4.2.0
+
+
+# from django.db import models
+# from django.utils import timezone
+
+# class Post(models.Model):
+#     author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+#     title = models.CharField(max_length=100)
+#     content = models.TextField()
+#     created_at = models.DateTimeField(auto_now_add=True)
+#     updated_at = models.DateTimeField(auto_now=True)
+#     published_at = models.DateTimeField(blank = True, null = True)
+
+
+
+#     def publish(self):
+#         self.published_at = timezone.now()
+#         self.save()
+
+#     def __str__(self):
+#         return self.title
+    
+# class Reserveclass(models.Model):
+#     student_id = models.PositiveSmallIntegerField(primary_key=True) 
+#     class_num = models.PositiveSmallIntegerField()
+#     class_type = models.PositiveSmallIntegerField()
+#     class_selec = models.PositiveSmallIntegerField()
+#     class_title = models.CharField(max_length=100)
+#     class_object = models.CharField(max_length=50)
+#     class_loud = models.CharField(max_length=50)
+    
+#     def __str__(self):
+#         return self.class_title
