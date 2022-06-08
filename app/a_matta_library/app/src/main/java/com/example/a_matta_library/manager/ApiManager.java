@@ -20,11 +20,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ApiManager {
-    public static final String HOST = "http://10.0.2.2:8000";
+    public static final String HOST1 = "https://amadda-django-test.herokuapp.com";
+    //public static final String HOST2 = "http://10.0.2.2:8000";
     public static List<Classroom> classrooms = new ArrayList<>();
 
     public static void initClassrooms(SuccessCallback callback) {
-        request(String.format("%s/%s/?format=%s", HOST, "teacher", "json"), json -> {
+        request(String.format("%s/%s/?format=%s", HOST1, "teacher", "json"), json -> {
             try {
                 JSONArray jsonArray = new JSONArray(json);
 
