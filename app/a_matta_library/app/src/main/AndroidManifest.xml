@@ -1,32 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.a_matta_library">
+    package="com.example.a_matta_library" >
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:icon="@mipmap/ic_amatta"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_amatta_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.A_matta_library">
+        android:theme="@style/Theme.A_matta_library"
+        android:usesCleartextTraffic="true" >
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
+            android:name=".LoginActivity"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".MainActivity" />
         <activity android:name=".sub_1_notice" />
         <activity android:name=".sub_2_kyoyko" />
-            <activity android:name=".sub_2_kyokyo_settings"/>
-        <activity android:name=".sub_3_library"/>
-        <activity android:name=".sub_4_yumyum"/>
-        <activity android:name=".sub_5_howto"/>
+        <activity android:name=".sub_2_kyokyo_settings" />
+        <activity android:name=".sub_3_library" />
+        <activity android:name=".sub_4_yumyum" />
+        <activity android:name=".sub_5_howto" />
     </application>
 
 </manifest>
