@@ -45,6 +45,7 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/middle"
         app:layout_constraintVertical_weight="0.5">
@@ -100,6 +101,7 @@
         app:passwordToggleEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/prtd_smb"
@@ -121,6 +123,7 @@
         app:layout_constraintTop_toTopOf="@id/bottom">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/prtd_smb"

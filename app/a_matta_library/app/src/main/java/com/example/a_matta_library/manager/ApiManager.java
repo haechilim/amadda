@@ -21,7 +21,7 @@ import java.util.List;
 
 public class ApiManager {
     public static final String HOST1 = "https://amadda-django-test.herokuapp.com";
-    //public static final String HOST2 = "http://10.0.2.2:8000";
+    public static final String HOST2 = "https://amadda-flask-test.herokuapp.com";
     public static List<Classroom> classrooms = new ArrayList<>();
 
     public static void initClassrooms(SuccessCallback callback) {
@@ -49,6 +49,20 @@ public class ApiManager {
             }
 
             callback.success(true);
+        });
+    }
+
+    public static void checkLogin(String id, String password, SuccessCallback callback) {
+        request(String.format("%s/isvalid?id=%s&pw=%s", HOST2, id, password), json -> {
+            try {
+                JSONObject jsonObject = new JSONObject(json);
+
+                boolean isValid = jsonObject.getBoolean("isvalid");
+
+                callback.success(isValid);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         });
     }
 
