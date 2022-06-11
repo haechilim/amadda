@@ -66,6 +66,21 @@ public class ApiManager {
         });
     }
 
+    public static void applicationFormat(int num, int type, int selectedIndex, String title, String object, String loud, String teacher, SuccessCallback callback) {
+        String uri = String.format("%s/reserve?num=%d&type=%d&class=%d&title=%s&object=%s&loud=%s&teacher=%s", HOST2, num, type, selectedIndex, title, object, loud, teacher);
+        request(uri, json -> {
+            try {
+                JSONObject jsonObject = new JSONObject(json);
+
+                boolean isValid = jsonObject.getBoolean("success");
+
+                callback.success(isValid);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        });
+    }
+
     private static void request(String url, JsonCallback callback) {
         Log.d("test", url);
 
