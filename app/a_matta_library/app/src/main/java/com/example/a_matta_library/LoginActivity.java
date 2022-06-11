@@ -14,6 +14,7 @@ import com.google.android.material.textfield.TextInputEditText;
 public class LoginActivity extends AppCompatActivity {
     private TextInputEditText inputId;
     private TextInputEditText inputPassword;
+    private TextInputEditText inputNum;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,12 +23,14 @@ public class LoginActivity extends AppCompatActivity {
 
         inputId = findViewById(R.id.id);
         inputPassword = findViewById(R.id.password);
+        inputNum = findViewById(R.id.num);
 
         findViewById(R.id.login).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String id = inputId.getText().toString().trim();
                 String password = inputPassword.getText().toString().trim();
+                int num = Integer.parseInt(inputNum.getText().toString().trim());
 
                 if(!checkValidation(id, password)) return;
 
@@ -37,6 +40,7 @@ public class LoginActivity extends AppCompatActivity {
                         SharedPreferences.Editor editor = sharedPreferences.edit();
                         editor.putString("id", id);
                         editor.putString("password", password);
+                        editor.putInt("num", num);
                         editor.commit();
 
                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);

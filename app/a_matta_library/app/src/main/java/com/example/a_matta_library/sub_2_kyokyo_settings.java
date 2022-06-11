@@ -1,5 +1,6 @@
 package com.example.a_matta_library;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -22,6 +23,7 @@ public class sub_2_kyokyo_settings extends AppCompatActivity {
     private ArrayList<String> object, classroom, loud;
     private ArrayAdapter<String> arrayAdapter1, arrayAdapter2, arrayAdapter3, arrayAdapter4;
     private EditText inputTitle;
+    private int num;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -43,6 +45,9 @@ public class sub_2_kyokyo_settings extends AppCompatActivity {
 
         spinner1.setAdapter(arrayAdapter1);
         spinner3.setAdapter(arrayAdapter3);
+
+        SharedPreferences sharedPreferences = getSharedPreferences("account", MODE_PRIVATE);
+        num = sharedPreferences.getInt("num", 0);
 
         bindEvents();
         initClassrooms();
@@ -66,7 +71,7 @@ public class sub_2_kyokyo_settings extends AppCompatActivity {
                 selectedIndex -= numbers[i];
             }
 
-            ApiManager.applicationFormat(30417, i, selectedIndex, title, object, loud, teacher, success -> {
+            ApiManager.applicationFormat(num, i + 1, selectedIndex, title, object, loud, teacher, success -> {
                 Util.toast(this, "교과교실 설정이 변경되었습니다.", false);
                 finish();
             });

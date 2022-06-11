@@ -19,7 +19,7 @@
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/input_password"
+        app:layout_constraintTop_toBottomOf="@id/input_num"
         tools:ignore="TextContrastCheck" />
 
     <LinearLayout
@@ -87,6 +87,28 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/login_logo" />
+
+    <LinearLayout
+        android:id="@+id/input_num"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="@id/bottom"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/input_password">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/num"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/prtd_smb"
+            android:hint="STUDENT ID"
+            android:inputType="number"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/input_password"
