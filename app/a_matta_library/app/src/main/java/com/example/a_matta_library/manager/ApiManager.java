@@ -56,7 +56,6 @@ public class ApiManager {
         request(String.format("%s/isvalid?id=%s&pw=%s", HOST2, id, password), json -> {
             try {
                 JSONObject jsonObject = new JSONObject(json);
-
                 boolean isValid = jsonObject.getBoolean("isvalid");
 
                 callback.success(isValid);
@@ -71,10 +70,32 @@ public class ApiManager {
         request(uri, json -> {
             try {
                 JSONObject jsonObject = new JSONObject(json);
-
                 boolean isValid = jsonObject.getBoolean("success");
 
                 callback.success(isValid);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        });
+    }
+
+    public static void reserveClass(int num, String id, String pw, String time, SuccessCallback callback) {
+        String uri = String.format("%s/reserveclass?num=%d&id=%s&pw=%s&time=%s", HOST2, num, id, pw, time);
+        request(uri, json -> {
+            try {
+                JSONObject jsonObject = new JSONObject(json);
+                JSONArray isValid = jsonObject.getJSONArray("success");
+
+                Log.d("test", isValid.toString());
+
+                for(int i = 0; i < isValid.length(); i++) {
+                    if(isValid.get(i).toString() == "false") {
+                        callback.success(false);
+                        return;
+                    }
+                }
+
+                callback.success(true);
             } catch (JSONException e) {
                 e.printStackTrace();
             }

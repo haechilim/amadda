@@ -24,8 +24,6 @@ public class sub_4_yumyum extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
             }
-
         });
     }
-
 }
