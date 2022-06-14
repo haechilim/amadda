@@ -60,18 +60,8 @@ public class sub_2_kyokyo_settings extends AppCompatActivity {
             String loud = spinner3.getSelectedItem().toString();
             String teacher = spinner4.getSelectedItem().toString();
             String classroomName = spinner2.getSelectedItem().toString();
-            int selectedIndex = classroom.indexOf(classroomName) + 1;
 
-            int numbers[] = { 32, 5, 17, 7 };
-            int i = 0;
-
-            for(i = 0; i < numbers.length; i++) {
-                if(selectedIndex - numbers[i] <= 0) break;
-
-                selectedIndex -= numbers[i];
-            }
-
-            ApiManager.applicationFormat(num, i + 1, selectedIndex, title, object, loud, teacher, success -> {
+            ApiManager.applicationFormat(num, classroomName, title, object, loud, teacher, success -> {
                 Util.toast(this, "교과교실 설정이 변경되었습니다.", false);
                 finish();
             });

@@ -65,8 +65,8 @@ public class ApiManager {
         });
     }
 
-    public static void applicationFormat(int num, int type, int selectedIndex, String title, String object, String loud, String teacher, SuccessCallback callback) {
-        String uri = String.format("%s/reserve?num=%d&type=%d&class=%d&title=%s&object=%s&loud=%s&teacher=%s", HOST2, num, type, selectedIndex, title, object, loud, teacher);
+    public static void applicationFormat(int num, String classroomName, String title, String object, String loud, String teacher, SuccessCallback callback) {
+        String uri = String.format("%s/reserve?num=%d&&class=%s&title=%s&object=%s&loud=%s&teacher=%s", HOST2, num, classroomName, title, object, loud, teacher);
         request(uri, json -> {
             try {
                 JSONObject jsonObject = new JSONObject(json);
