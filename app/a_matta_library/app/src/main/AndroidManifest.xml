@@ -30,6 +30,13 @@
         <activity android:name=".sub_3_library" />
         <activity android:name=".sub_4_yumyum" />
         <activity android:name=".sub_5_howto" />
+        <receiver android:name=".AlarmReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

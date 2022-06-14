@@ -102,6 +102,26 @@ public class ApiManager {
         });
     }
 
+    public static void getMenu(int year, int month, int day, MenusCallback callback) {
+        String uri = String.format("%s/menu?yy=%d&mm=%d&dd=%d", HOST2, year, month, day);
+        request(uri, json -> {
+            try {
+                JSONObject jsonObject = new JSONObject(json);
+
+                String breakfast = jsonObject.getString("breakfast");
+                String lunch = jsonObject.getString("lunch");
+                String dinner = jsonObject.getString("dinner");
+                String snack = jsonObject.getString("snack");
+
+                String menus[] = { breakfast, lunch, dinner, snack };
+
+                callback.menus(menus);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        });
+    }
+
     private static void request(String url, JsonCallback callback) {
         Log.d("test", url);
 
@@ -152,5 +172,9 @@ public class ApiManager {
 
     public interface SuccessCallback {
         void success(boolean success);
+    }
+
+    public interface MenusCallback {
+        void menus(String[] menus);
     }
 }
